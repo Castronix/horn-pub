@@ -53,7 +53,7 @@ export default function Home(){
    <p className="entry-copy">A little unexpected branding. A lot of timeless Scripture. Browse Bible verses, find encouragement, and share the Word with someone who might need it today.</p>
    <p className="entry-highlight">No explicit content. Just the Word.</p>
    <div className="entry-actions"><button className="entry-primary" onClick={enterSite}>I’m ready for the Word — Enter</button><button className="entry-secondary" onClick={()=>setGateExit(true)}>Not now — Leave</button></div>
-   <div className="entry-bottom"><strong>What you’ll find inside</strong><p>Daily verses · Topic search · Copy and share · Downloadable verse cards</p><small>HornPub is an independent Bible verse project.</small></div>
+   <div className="entry-bottom"><strong>What you’ll find inside</strong><p>Daily verses · Topic search · Copy and share · Downloadable verse cards</p><small>HornPub is an independent Bible verse project.</small><div className="entry-credit">Created by <strong>Bob Ruzzle D. Castro</strong></div></div>
    </>}
   </div></div>}
   <header className="container topbar"><Brand/><button className="menu-btn" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-label="Toggle navigation">☰</button><nav className={'nav '+(menuOpen?"open":"")} aria-label="Main navigation"><a href="#daily" onClick={()=>setMenuOpen(false)}>Verse of the Day</a><a href="#discover" onClick={()=>setMenuOpen(false)}>Browse Topics</a><a href="#find" onClick={()=>setMenuOpen(false)}>Find a Verse</a><a className="nav-cta" href="#daily" onClick={()=>setMenuOpen(false)}>Get the Word ↗</a></nav></header>
