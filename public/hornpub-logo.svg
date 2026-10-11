@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="390" height="100" viewBox="0 0 390 100" role="img" aria-labelledby="title">
-<title id="title">HornPub</title>
-<rect width="390" height="100" fill="none"/>
-<text x="4" y="76" fill="#ffffff" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="82" font-weight="900" letter-spacing="-4">Horn</text>
-<rect x="191" y="8" width="195" height="84" rx="4" fill="#ff9900"/>
-<text x="202" y="76" fill="#080808" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="79" font-weight="900" letter-spacing="-4">pub</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="52" viewBox="0 0 230 52" role="img" aria-labelledby="title"><title id="title">HornPub</title><rect width="230" height="52" fill="none"/><text x="3" y="37" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" letter-spacing="-1.5">Horn</text><rect x="77" y="10" width="64" height="29" rx="2.5" fill="#ff9900"/><text x="80" y="37" fill="#080808" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" letter-spacing="-1.5">pub</text></svg>
