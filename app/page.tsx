@@ -23,13 +23,12 @@ const topics = [
  {name:"Guidance",key:"guidance",icon:"⌁",desc:"Wisdom when the next step is not obvious."}
 ];
 function dailyIndex(){const d=new Date();return (d.getFullYear()*367+d.getMonth()*31+d.getDate())%verses.length;}
-function Brand(){return <a className="brand" href="#" aria-label="HornPub home"><img src="/hornpub-logo.svg" alt="HornPub" width="156" height="40" /></a>; }
+function Brand(){return <a className="brand" href="#" aria-label="HornPub home"><span className="brand-horn">Horn</span><span className="brand-pub">pub</span></a>; }
 
 export default function Home(){
  const [gateOpen,setGateOpen]=useState(true);
  const [gateExit,setGateExit]=useState(false);
- useEffect(()=>{try{if(window.localStorage.getItem("hornpub-entry-confirmed")==="yes")setGateOpen(false);}catch{}},[]);
- function enterSite(){try{window.localStorage.setItem("hornpub-entry-confirmed","yes");}catch{}setGateOpen(false);setGateExit(false);}
+ function enterSite(){setGateOpen(false);setGateExit(false);}
  const [currentIndex,setCurrentIndex]=useState(dailyIndex);
  const [topic,setTopic]=useState("");
  const [query,setQuery]=useState("");
@@ -47,8 +46,8 @@ export default function Home(){
  return <main className="site-shell">
   {gateOpen&&<div className="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title"><div className="entry-panel">
    <div className="entry-language">◉ English ▾</div>
-   {gateExit?<><img className="entry-logo" src="/hornpub-logo.svg" alt="HornPub" /><h1 id="gate-title">Take your time.</h1><p className="entry-copy">HornPub will be here when you’re ready for a little Scripture and encouragement.</p><button className="entry-primary" onClick={enterSite}>Okay, let me in</button></>:<>
-   <img className="entry-logo" src="/hornpub-logo.svg" alt="HornPub" />
+   {gateExit?<><div className="entry-wordmark" aria-label="HornPub"><span>Horn</span><b>pub</b></div><h1 id="gate-title">Take your time.</h1><p className="entry-copy">HornPub will be here when you’re ready for a little Scripture and encouragement.</p><button className="entry-primary" onClick={enterSite}>Okay, let me in</button></>:<>
+   <div className="entry-wordmark" aria-label="HornPub"><span>Horn</span><b>pub</b></div>
    <h1 id="gate-title">This is a Bible website</h1>
    <span className="entry-notice-pill">A quick note before you enter</span>
    <p className="entry-copy">A little unexpected branding. A lot of timeless Scripture. Browse Bible verses, find encouragement, and share the Word with someone who might need it today.</p>
