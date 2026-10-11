@@ -1,17 +1,19 @@
 # HornPub — Bible Verse Website
 
-A public, mobile-first Bible verse experience built with Next.js and Tailwind CSS. The initial version includes:
+HornPub is a public, mobile-first Bible verse experience built with Next.js and Tailwind CSS. It uses a playful black-and-orange identity around a genuinely useful Scripture-reading experience.
 
-- Verse of the day (deterministic daily selection)
+## Included
+- Responsive cinematic black-and-orange layout
+- Daily verse selection
 - Random verse interaction
-- Search and topic filters
-- Copy/share actions
-- Downloadable SVG verse cards
-- Responsive layout, SEO metadata, and reduced-motion support
+- Topic filters and search
+- Copy and native share actions
+- Downloadable SVG quote cards
+- Accessible navigation and reduced-motion support
+- SEO metadata and a custom not-found page
 
-## Run locally
-
-Requirements: Node.js 20.9+
+## Local development
+Requires Node.js 20.9 or later.
 
 ```bash
 npm install
@@ -20,25 +22,21 @@ npm run dev
 
 Open http://localhost:3000.
 
-## Build for production
-
+## Production build
 ```bash
 npm run build
 npm start
 ```
 
-## Deploy to Vercel
+## Deploy on Vercel
+Import `https://github.com/Castronix/horn-pub` into Vercel. Choose the Next.js framework preset and keep the project root as `./`. No environment variables are required for the current frontend-only version.
 
-Import this folder/repository into Vercel and use the default Next.js settings. No environment variables are required for the starter.
+## Scripture and launch notes
+The sample verse text uses short King James Version (KJV) quotations. Check each passage in context before publishing. Any future translation, advertising, fundraising, or monetization plans should be reviewed for the applicable text permissions and legal requirements. The reflections on the site are editorial commentary, not additional Scripture.
 
-## Scripture note
-
-This starter uses short King James Version quotations. Verify every passage in context before publication and review translation permissions for the jurisdictions in which the website will be operated. The brief reflections are editorial commentary, not additional Scripture.
-
-## Before public launch
-
-- Confirm final brand name/domain and trademark clearance.
-- Test on mobile and desktop.
-- Review Scripture text, references, and translation permissions.
-- Replace placeholder footer URL in the downloadable verse card with the final production URL.
-- Add privacy/contact pages if analytics, advertising, user submissions, or other data collection are introduced.
+Before public launch:
+- Verify the final brand name and relevant trademarks.
+- Test the deployed site on mobile and desktop.
+- Verify all verse references and quotation wording.
+- Review translation permissions for the jurisdictions where the website will be operated.
+- Add privacy/contact pages if analytics, advertising, user submissions, or other personal-data collection are introduced.
