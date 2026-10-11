@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Verse = { ref: string; text: string; topic: string; reflection: string };
 const verses: Verse[] = [
@@ -26,6 +26,10 @@ function dailyIndex(){const d=new Date();return (d.getFullYear()*367+d.getMonth(
 function Brand(){return <a className="brand" href="#" aria-label="HornPub home"><img src="/hornpub-logo.svg" alt="HornPub" width="156" height="40" /></a>; }
 
 export default function Home(){
+ const [gateOpen,setGateOpen]=useState(true);
+ const [gateExit,setGateExit]=useState(false);
+ useEffect(()=>{try{if(window.localStorage.getItem("hornpub-entry-confirmed")==="yes")setGateOpen(false);}catch{}},[]);
+ function enterSite(){try{window.localStorage.setItem("hornpub-entry-confirmed","yes");}catch{}setGateOpen(false);setGateExit(false);}
  const [currentIndex,setCurrentIndex]=useState(dailyIndex);
  const [topic,setTopic]=useState("");
  const [query,setQuery]=useState("");
@@ -41,6 +45,18 @@ export default function Home(){
    const url=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download="hornpub-"+v.ref.toLowerCase().replace(/[^a-z0-9]+/g,"-")+".svg";a.click();URL.revokeObjectURL(url);
  }
  return <main className="site-shell">
+  {gateOpen&&<div className="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title"><div className="entry-panel">
+   <div className="entry-language">◉ English ▾</div>
+   {gateExit?<><img className="entry-logo" src="/hornpub-logo.svg" alt="HornPub" /><h1 id="gate-title">Take your time.</h1><p className="entry-copy">HornPub will be here when you’re ready for a little Scripture and encouragement.</p><button className="entry-primary" onClick={enterSite}>Okay, let me in</button></>:<>
+   <img className="entry-logo" src="/hornpub-logo.svg" alt="HornPub" />
+   <h1 id="gate-title">This is a Bible website</h1>
+   <span className="entry-notice-pill">A quick note before you enter</span>
+   <p className="entry-copy">A little unexpected branding. A lot of timeless Scripture. Browse Bible verses, find encouragement, and share the Word with someone who might need it today.</p>
+   <p className="entry-highlight">No explicit content. Just the Word.</p>
+   <div className="entry-actions"><button className="entry-primary" onClick={enterSite}>I’m ready for the Word — Enter</button><button className="entry-secondary" onClick={()=>setGateExit(true)}>Not now — Leave</button></div>
+   <div className="entry-bottom"><strong>What you’ll find inside</strong><p>Daily verses · Topic search · Copy and share · Downloadable verse cards</p><small>HornPub is an independent Bible verse project.</small></div>
+   </>}
+  </div></div>}
   <header className="container topbar"><Brand/><button className="menu-btn" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-label="Toggle navigation">☰</button><nav className={'nav '+(menuOpen?"open":"")} aria-label="Main navigation"><a href="#daily" onClick={()=>setMenuOpen(false)}>Verse of the Day</a><a href="#discover" onClick={()=>setMenuOpen(false)}>Browse Topics</a><a href="#find" onClick={()=>setMenuOpen(false)}>Find a Verse</a><a className="nav-cta" href="#daily" onClick={()=>setMenuOpen(false)}>Get the Word ↗</a></nav></header>
   <section className="container hero"><div><div className="eyebrow">A daily call to scripture</div><h1>THE WORD<br/>HITS <span>DIFFERENT.</span></h1><p className="hero-copy">You came for curiosity. Stay for the Word. Find a verse for whatever life is throwing at you today—no noise, just timeless truth for real life.</p><div className="hero-actions"><a className="primary-btn" href="#daily">Get today&apos;s verse ↗</a><a className="text-link" href="#discover">Find what you need <span>→</span></a></div><div className="hero-note"><span className="note-dot"/> Free to read. Easy to share. Scripture at the center.</div></div>
    <article className="scripture-card" id="daily" aria-live="polite"><div className="card-top"><span>✦ Verse of the day</span><span className="live-badge">Daily Word</span></div><div><div className="big-quote">“</div><p className="verse-text">{current.text}</p><div className="verse-ref">{current.ref.toUpperCase()}</div><p className="notice">{current.reflection}</p></div><div className="card-bottom"><span style={{fontSize:11,color:"#a9a195"}}>Take the Word with you.</span><div className="card-actions"><button className="icon-btn" onClick={()=>copyVerse(current)}>{copied?"✓ Copied":"▢ Copy"}</button><button className="icon-btn" onClick={()=>shareVerse(current)}>↗ Share</button><button className="icon-btn" onClick={()=>downloadCard(current)}>↓ Card</button></div></div></article>
