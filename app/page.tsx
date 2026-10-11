@@ -23,7 +23,7 @@ const topics = [
  {name:"Guidance",key:"guidance",icon:"⌁",desc:"Wisdom when the next step is not obvious."}
 ];
 function dailyIndex(){const d=new Date();return (d.getFullYear()*367+d.getMonth()*31+d.getDate())%verses.length;}
-function Brand(){return <a className="brand" href="#" aria-label="HornPub home"><span className="brand-mark" aria-hidden="true"/><span>HORN</span><span className="brand-pub">PUB</span></a>;}
+function Brand(){return <a className="brand" href="#" aria-label="HornPub home"><img src="/hornpub-logo.svg" alt="HornPub" width="156" height="40" /></a>; }
 
 export default function Home(){
  const [currentIndex,setCurrentIndex]=useState(dailyIndex);
