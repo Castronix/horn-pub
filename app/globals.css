@@ -31,7 +31,7 @@ button{cursor:pointer}
 .site-shell{overflow:hidden;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.09),transparent 38%),var(--bg)}
 .container{width:min(1120px,calc(100% - 44px));margin:0 auto}
 .topbar{height:80px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.brand{display:inline-flex;align-items:center;gap:0;font-family:Arial,Helvetica,sans-serif;font-size:27px;font-weight:700;letter-spacing:-1.1px;line-height:1;white-space:nowrap}.brand-horn{color:#fff}.brand-pub{background:#ff9900;color:#080808;padding:1px 4px 2px;border-radius:3px;margin-left:1px;font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;letter-spacing:-1.1px;line-height:1}
+.brand{display:inline-flex;align-items:center;gap:0;font-family:Arial,Helvetica,sans-serif;font-size:27px;font-weight:700;letter-spacing:-1.1px;line-height:1;white-space:nowrap;gap:4px}.brand-horn{color:#fff}.brand-pub{background:#ff9900;color:#080808;padding:1px 4px 2px;border-radius:3px;margin-left:0;font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;letter-spacing:-1.1px;line-height:1}
 
 .brand-mark{display:block;width:27px;height:27px;border:1px solid #66512d;border-radius:50%;margin-right:10px;position:relative}
 .brand-mark:before{content:"";position:absolute;width:9px;height:14px;border:2px solid var(--orange);border-top-left-radius:100%;border-bottom-right-radius:100%;transform:rotate(-30deg);left:7px;top:4px}
