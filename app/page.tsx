@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 type Verse = { ref: string; text: string; topic: string; reflection: string };
 const verses: Verse[] = [
