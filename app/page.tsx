@@ -23,7 +23,7 @@ export default function Home(){
  const [selected,setSelected]=useState<Verse|null>(null);
  const [bookFilter,setBookFilter]=useState("All books");
  const [activeCategory,setActiveCategory]=useState("");
- const [page,setPage]=useState(1);\n const pageSize=24;\n const pageCount=Math.max(1,Math.ceil(filtered.length/pageSize));
+ const [page,setPage]=useState(1);\n const pageSize=24;
  const [showLibrary,setShowLibrary]=useState(false);
  useEffect(()=>{let live=true; (async()=>{try{
    const results=await Promise.all(BOOKS.map(async book=>{const fileName=book.replace(/\s+/g,"");const url="https://cdn.jsdelivr.net/gh/aruljohn/Bible-kjv@master/"+fileName+".json";const response=await fetch(url);if(!response.ok)throw new Error("Could not load "+book);return await response.json() as BookData;}));
@@ -32,7 +32,7 @@ export default function Home(){
   }catch(e){if(live){setLoadError("The Bible text could not be loaded right now. Please check your connection and try again.");setLoading(false);}}})();return()=>{live=false};},[]);
  const filtered=useMemo(()=>{const q=query.trim().toLowerCase();return verses.filter(v=>(bookFilter==="All books"||v.book===bookFilter)&&(!q||(v.ref+" "+v.text).toLowerCase().includes(q)));},[verses,query,bookFilter]);
  const daily=verses.length?verses[Math.min(verses.length-1,Math.floor(Date.now()/86400000)%verses.length)]:null;
- const displayed=filtered.slice((page-1)*pageSize,page*pageSize);\n const pageNumbers=Array.from(new Set([1,2,3,4,5,10,pageCount,page-1,page,page+1].filter(n=>n>=1&&n<=pageCount))).sort((a,b)=>a-b);
+ const pageCount=Math.max(1,Math.ceil(filtered.length/pageSize));\n const displayed=filtered.slice((page-1)*pageSize,page*pageSize);\n const pageNumbers=Array.from(new Set([1,2,3,4,5,10,pageCount,page-1,page,page+1].filter(n=>n>=1&&n<=pageCount))).sort((a,b)=>a-b);
  function openCategory(name:string){setActiveCategory(name);if(name==="The Bible Library"){setShowLibrary(true);setQuery("");setBookFilter("All books");setPage(1);document.getElementById("library")?.scrollIntoView({behavior:"smooth"});return;}const c=CATEGORIES.find(x=>x.name===name);setQuery(c?.terms[0]||"");setBookFilter("All books");setPage(1);document.getElementById("library")?.scrollIntoView({behavior:"smooth"});}
  return <main className="site-shell">
   <header className="container topbar"><a className="brand" href="#" aria-label="HornPub home"><span className="brand-horn">Horn</span><span className="brand-pub">pub</span></a><form className="header-search" onSubmit={e=>{e.preventDefault();document.getElementById("library")?.scrollIntoView({behavior:"smooth"});}}><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search the Bible by verse, phrase, or reference" aria-label="Search the Bible"/></form><a className="top-link" href="#library">BIBLE LIBRARY</a></header>
