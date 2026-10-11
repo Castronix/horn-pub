@@ -26,7 +26,7 @@ export default function Home(){
  const [limit,setLimit]=useState(24);
  const [showLibrary,setShowLibrary]=useState(false);
  useEffect(()=>{let live=true; (async()=>{try{
-   const results=await Promise.all(BOOKS.map(async book=>{const fileName=book.replace(/\\s+/g,"");const url="https://cdn.jsdelivr.net/gh/aruljohn/Bible-kjv@master/"+fileName+".json";const response=await fetch(url);if(!response.ok)throw new Error("Could not load "+book);return await response.json() as BookData;}));
+   const results=await Promise.all(BOOKS.map(async book=>{const fileName=book.replace(/\s+/g,"");const url="https://cdn.jsdelivr.net/gh/aruljohn/Bible-kjv@master/"+fileName+".json";const response=await fetch(url);if(!response.ok)throw new Error("Could not load "+book);return await response.json() as BookData;}));
    const all:Verse[]=[];for(const data of results){for(const ch of data.chapters||[]){for(const v of ch.verses||[]){all.push({book:data.book,chapter:Number(ch.chapter),verse:Number(v.verse),text:v.text,ref:data.book+" "+ch.chapter+":"+v.verse});}}}
    if(live){setVerses(all);setLoading(false);}
   }catch(e){if(live){setLoadError("The Bible text could not be loaded right now. Please check your connection and try again.");setLoading(false);}}})();return()=>{live=false};},[]);
