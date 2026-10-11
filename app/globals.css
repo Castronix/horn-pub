@@ -24,3 +24,14 @@
 .page-button:disabled{opacity:.35;cursor:not-allowed}
 .page-ellipsis{color:#888;font-size:14px;padding:0 2px}
 @media(max-width:650px){.pagination{gap:5px}.page-slot{gap:5px}.page-button{min-width:36px;height:40px;padding:0 10px;font-size:12px}.page-button.next{min-width:65px}}
+
+.intro-screen{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(ellipse at 50% 15%,#241506 0%,#0a0a0a 50%,#050505 100%);overflow-y:auto}
+.intro-panel{width:min(680px,100%);padding:clamp(28px,6vw,62px);background:rgba(15,15,15,.96);border:1px solid #303030;border-top:3px solid var(--orange);box-shadow:0 24px 90px rgba(0,0,0,.55)}
+.intro-brand{display:inline-flex;align-items:center;gap:4px;font-size:clamp(32px,5vw,44px);font-weight:900;letter-spacing:-1.8px;margin-bottom:40px}
+.intro-brand span{color:#fff}.intro-brand b{font-weight:900;font-style:normal;background:var(--orange);color:#080808;padding:0 6px 3px;border-radius:3px}
+.intro-kicker{font-size:11px;letter-spacing:2px;font-weight:900;color:var(--orange);margin-bottom:14px}
+.intro-panel h1{font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;font-size:clamp(42px,7vw,68px);line-height:.95;letter-spacing:-.7px;margin:0 0 18px;color:#fff}
+.intro-lead{font-size:16px;line-height:1.8;color:#dedede;margin:0 0 18px}.intro-lead strong{color:#fff}.intro-note{border-left:2px solid var(--orange);padding:10px 0 10px 14px;color:#aaa;font-size:12px;line-height:1.7;margin:20px 0 25px}
+.intro-cta{display:inline-flex;align-items:center;gap:24px;justify-content:space-between;background:var(--orange);border:0;border-radius:3px;color:#111;padding:15px 19px;font-size:12px;font-weight:900;letter-spacing:.7px;min-height:48px}.intro-cta:hover{background:#ffb52e}.intro-cta span{font-size:18px;line-height:1}
+.intro-footer{border-top:1px solid #2c2c2c;margin-top:36px;padding-top:16px;color:#777;font-size:9px;letter-spacing:1.4px}
+@media(max-width:600px){.intro-screen{padding:14px}.intro-panel{padding:28px 22px}.intro-brand{margin-bottom:30px}.intro-lead{font-size:14px}.intro-footer{line-height:1.7}}
