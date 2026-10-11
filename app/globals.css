@@ -12,8 +12,8 @@ button{cursor:pointer}
 .site-shell{overflow:hidden;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.09),transparent 38%),var(--bg)}
 .container{width:min(1120px,calc(100% - 44px));margin:0 auto}
 .topbar{height:80px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-.brand{display:inline-flex;align-items:center;gap:0;font-size:23px;font-weight:950;letter-spacing:-1.5px}
-.brand-pub{background:var(--orange);color:#19150f;padding:5px 7px;border-radius:5px;margin-left:3px}
+.brand{display:inline-flex;align-items:center;gap:0;font-family:"Arial Black",Impact,Arial,sans-serif;font-size:23px;font-weight:900;letter-spacing:-1.8px;text-transform:uppercase;line-height:1}
+.brand-pub{background:var(--orange);color:#19150f;padding:5px 7px;border-radius:3px;margin-left:3px;font-family:"Arial Black",Impact,Arial,sans-serif;font-weight:900;letter-spacing:-1.6px;line-height:1}
 .brand-mark{display:block;width:27px;height:27px;border:1px solid #66512d;border-radius:50%;margin-right:10px;position:relative}
 .brand-mark:before{content:"";position:absolute;width:9px;height:14px;border:2px solid var(--orange);border-top-left-radius:100%;border-bottom-right-radius:100%;transform:rotate(-30deg);left:7px;top:4px}
 .nav{display:flex;align-items:center;gap:27px;font-size:13px;color:#c4c0b8}
