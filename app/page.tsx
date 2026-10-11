@@ -25,7 +25,8 @@ export default function Home(){
  const [activeCategory,setActiveCategory]=useState("");
  const [page,setPage]=useState(1);
  const pageSize=24;
- const [showLibrary,setShowLibrary]=useState(false);\n const [introStep,setIntroStep]=useState<0|1|2>(0);
+ const [showLibrary,setShowLibrary]=useState(false);
+ const [introStep,setIntroStep]=useState<0|1|2>(0);
  useEffect(()=>{let live=true; (async()=>{try{
    const results=await Promise.all(BOOKS.map(async book=>{const fileName=book.replace(/\s+/g,"");const url="https://cdn.jsdelivr.net/gh/aruljohn/Bible-kjv@master/"+fileName+".json";const response=await fetch(url);if(!response.ok)throw new Error("Could not load "+book);return await response.json() as BookData;}));
    const all:Verse[]=[];for(const data of results){for(const ch of data.chapters||[]){for(const v of ch.verses||[]){all.push({book:data.book,chapter:Number(ch.chapter),verse:Number(v.verse),text:v.text,ref:data.book+" "+ch.chapter+":"+v.verse});}}}
